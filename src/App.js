@@ -23,7 +23,10 @@ function App() {
       <Router>
         <nav>
             {!isAuth ? (
-              <Link to="/login"> Login </Link>
+               <>
+               <Link to="/login"> Login </Link>
+               <Link to="/signup"> Sign Up </Link>
+             </>
             ) : (
               <>
                   <Link to="/"> Home </Link>
@@ -32,7 +35,7 @@ function App() {
             )}
       </nav>
         <Routes>
-              <Route path="/" element={ <div>HOME</div> } />
+              <Route path="/" element={ <div>Welcome to Tech Incubator!</div> } />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
               <Route path="/task" element={<Task />} />
