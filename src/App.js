@@ -30,6 +30,7 @@ function App() {
             ) : (
               <>
                   <Link to="/"> Home </Link>
+                  <Link to="/task"> Tasks </Link>
                   <button onClick={signUserOut}> Log Out</button>
               </>
             )}
