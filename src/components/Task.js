@@ -18,12 +18,22 @@ function Task() {
     const handleTaskChange = (e) => {
         setTask(e.currentTarget.value);
     }
+
+    const handleDeleteTask = (index) => {
+        const newTasks = [...tasks];
+        newTasks.splice(index, 1);
+        setTasks(newTasks);
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
+    }
   
     const taskList = tasks.map((t, index) =>
-        <Link to={`/task/${index}`}>
-            <li className='task-item'>{t}</li>
-        </Link>
-    );
+    <div key={index}>
+      <Link to={`/task/${index}`}>
+        <span className='task-item'>{t}</span>
+      </Link>
+      <button onClick={() => handleDeleteTask(index)}>Delete</button>
+    </div>
+  );
 
     return (
         <div className="task-container">
