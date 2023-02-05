@@ -44,6 +44,7 @@ function Task() {
       'taskStatus',
       JSON.stringify({ ...taskStatus, [index]: "In Progress" })
     );
+    localStorage.setItem('selectedTask', JSON.stringify(index));
   };
 
   
