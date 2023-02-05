@@ -19,6 +19,7 @@ function App() {
   };
 
   return (
+
       <Router>
         <nav>
             {!isAuth ? (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/task" element={<Task />} />
         </Routes>
       </Router>
+
   );
 }
 
