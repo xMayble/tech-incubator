@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { json, Link } from 'react-router-dom';
 import './Task.css';
 
 function Task() {
 
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState(
+        JSON.parse(localStorage.getItem('tasks')) || []
+    );
+
     const [task, setTask] = useState('');
 
     const handleAddTask = () => {
         setTasks([...tasks, task]);
+        localStorage.setItem('tasks', JSON.stringify([...tasks, task]));
     }
 
     const handleTaskChange = (e) => {
