@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Task() {
 
@@ -13,8 +14,12 @@ function Task() {
         setTask(e.currentTarget.value);
     }
   
-    const taskList = tasks.map(t => <li>{t}</li>);
-    
+    const taskList = tasks.map((t, index) =>
+        <Link to={`/task/${index}`}>
+            <li>{t}</li>
+        </Link>
+    );
+
     return (
         <div className="task-container">
             <div>
