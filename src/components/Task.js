@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Task.css';
 
 function Task() {
 
@@ -16,7 +17,7 @@ function Task() {
   
     const taskList = tasks.map((t, index) =>
         <Link to={`/task/${index}`}>
-            <li>{t}</li>
+            <li className='task-item'>{t}</li>
         </Link>
     );
 
