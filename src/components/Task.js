@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {getDatabase, push, ref, remove} from 'firebase/database';
 import './Task.css';
 
 function Task() {
+  const database = getDatabase();
 
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem('tasks')) || []
@@ -15,6 +17,7 @@ function Task() {
   );
 
   const handleAddTask = () => {
+
     setTasks([...tasks, task]);
     localStorage.setItem('tasks', JSON.stringify([...tasks, task]));
 
@@ -23,7 +26,13 @@ function Task() {
     localStorage.setItem(
     'taskStatus',
     JSON.stringify({ ...taskStatus, [tasks.length]: '' })
-  );
+    );
+
+    push(ref(database, 'task'), {
+      task: task,
+      status: taskStatus
+    });
+  
 };
   
 
@@ -36,6 +45,9 @@ function Task() {
     newTasks.splice(index, 1);
     setTasks(newTasks);
     localStorage.setItem('tasks', JSON.stringify(newTasks));
+
+    remove(ref(database))
+
   };
 
   const handleStartTask = (index) => {

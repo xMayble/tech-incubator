@@ -1,3 +1,11 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* adjust height to full screen */
+  }
+  
+
 .task-item {
     font-weight: 50px;
     color: black;
@@ -8,3 +16,10 @@
     margin-left: 20px;
 }
 
+.input {
+    text-align: left;
+    vertical-align: top;
+    width: 300px;
+    height: 100px;
+  }
+  
