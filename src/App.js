@@ -21,11 +21,14 @@ function App() {
   return (
 
       <Router>
-        <nav>
+            <div class='homepage_title'>
+            Welcome to Tech Incubator!
             {!isAuth ? (
                <>
+               <div className="buttons-container">
                <Link class="signup-button" to="/signup"> Sign Up </Link>
                <Link class="login-button" to="/login"> Login </Link>
+               </div>
              </>
             ) : (
               <>
@@ -34,9 +37,10 @@ function App() {
                   <button onClick={signUserOut}> Log Out</button>
               </>
             )}
-      </nav>
+            </div>
+      
         <Routes>
-              <Route path="/" element={ <div>Welcome to Tech Incubator!</div> } />
+              <Route path="/" element={<div />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
               <Route path="/task" element={<Task />} />
