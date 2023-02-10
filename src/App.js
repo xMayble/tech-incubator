@@ -24,8 +24,8 @@ function App() {
         <nav>
             {!isAuth ? (
                <>
-               <Link to="/login"> Login! </Link>
-               <Link to="/signup"> Sign Up! </Link>
+               <Link class="signup-button" to="/signup"> Sign Up </Link>
+               <Link class="login-button" to="/login"> Login </Link>
              </>
             ) : (
               <>
